@@ -115,20 +115,19 @@ class Fast_Management(MDApp):
         screen = Builder.load_string(KV)
         self.tap_target_view = MDTapTargetView(
             widget=screen.ids.button,
-            title_text="This is an add button",
-            description_text="This is a description of the button",
+            title_text="Create New Projects",
+            description_text="Создайте новый проект",
             widget_position="right_bottom",
         )
         return screen
 
     def on_start(self):
         icons_item = {
-            "folder": "My files",
-            "account-multiple": "Shared with me",
-            "star": "Starred",
-            "history": "Recent",
-            "checkbox-marked": "Shared with me",
-            "upload": "Upload",
+            "folder": "Projects",
+            "account-multiple": "My Task",
+            # "star": "Starred",
+            # "history": "Recent",
+            "checkbox-marked": "About Us",
         }
         for icon_name in icons_item.keys():
             self.root.ids.content_drawer.ids.md_list.add_widget(
