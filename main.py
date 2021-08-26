@@ -38,6 +38,7 @@ KV = '''
             size: "56dp", "56dp"
             source: "data/logo/icon.png"
 
+
     MDLabel:
         text: "Fast Management"
         font_style: "Button"
@@ -59,6 +60,9 @@ KV = '''
 
 Screen:
     
+    MDBoxLayout:
+        md_bg_color: app.theme_cls.bg_dark
+    
     MDFloatingActionButton:
         id: button
         icon: "plus"
@@ -77,6 +81,8 @@ Screen:
                         title: "Fast Management"
                         elevation: 10
                         left_action_items: [['menu', lambda x: nav_drawer.set_state("open")]]
+                        md_bg_color: app.theme_cls.bg_dark
+
 
                     Widget:
                         
@@ -120,6 +126,7 @@ class Fast_Management(MDApp):
             description_text="Создайте новый проект",
             widget_position="right_bottom",
         )
+        self.theme_cls.theme_style = "Dark"
         return screen
 
     def on_start(self):
