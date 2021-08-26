@@ -79,6 +79,7 @@ Screen:
                         left_action_items: [['menu', lambda x: nav_drawer.set_state("open")]]
 
                     Widget:
+                        
 
 
         MDNavigationDrawer:
