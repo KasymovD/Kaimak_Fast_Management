@@ -7,6 +7,8 @@ from kivymd.app import MDApp
 from kivymd.theming import ThemableBehavior
 from kivymd.uix.list import OneLineIconListItem, MDList
 
+from kivymd.uix.taptargetview import MDTapTargetView
+
 KV = '''
 # Menu item in the DrawerList list.
 <ItemDrawer>:
@@ -56,11 +58,16 @@ KV = '''
 
 
 Screen:
-
+    
+    MDFloatingActionButton:
+        id: button
+        icon: "plus"
+        pos: 730, 10
+        on_release: app.tap_target_start()
+        
     MDNavigationLayout:
 
         ScreenManager:
-
             Screen:
 
                 BoxLayout:
@@ -105,7 +112,14 @@ class DrawerList(ThemableBehavior, MDList):
 
 class Fast_Management(MDApp):
     def build(self):
-        return Builder.load_string(KV)
+        screen = Builder.load_string(KV)
+        self.tap_target_view = MDTapTargetView(
+            widget=screen.ids.button,
+            title_text="This is an add button",
+            description_text="This is a description of the button",
+            widget_position="right_bottom",
+        )
+        return screen
 
     def on_start(self):
         icons_item = {
@@ -121,5 +135,10 @@ class Fast_Management(MDApp):
                 ItemDrawer(icon=icon_name, text=icons_item[icon_name])
             )
 
+    def tap_target_start(self):
+        if self.tap_target_view.state == "close":
+            self.tap_target_view.start()
+        else:
+            self.tap_target_view.stop()
 
 Fast_Management().run()
