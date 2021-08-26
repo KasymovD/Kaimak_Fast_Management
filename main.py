@@ -1,4 +1,3 @@
-
 from kivy.lang import Builder
 from kivy.uix.boxlayout import BoxLayout
 from kivy.properties import StringProperty, ListProperty
@@ -14,83 +13,63 @@ KV = '''
 <ItemDrawer>:
     theme_text_color: "Custom"
     on_release: self.parent.set_color_item(self)
-
     IconLeftWidget:
         id: icon
         icon: root.icon
         theme_text_color: "Custom"
         text_color: root.text_color
-
-
 <ContentNavigationDrawer>:
     orientation: "vertical"
     padding: "8dp"
     spacing: "8dp"
-
     AnchorLayout:
         anchor_x: "left"
         size_hint_y: None
         height: avatar.height
-
         Image:
             id: avatar
             size_hint: None, None
-            size: "56dp", "56dp"
-            source: "data/logo/icon.png"
-
-
+            size: "70dp", "70dp"
+            source: "data/logo/Kaimak_logo_w.png"
     MDLabel:
         text: "Fast Management"
         font_style: "Button"
         size_hint_y: None
         height: self.texture_size[1]
-
     MDLabel:
         text: "kaimak_production@gmail.com"
         font_style: "Caption"
         size_hint_y: None
         height: self.texture_size[1]
-
     ScrollView:
-
         DrawerList:
             id: md_list
-
-
-
 Screen:
-    
+
     MDBoxLayout:
-        md_bg_color: app.theme_cls.bg_dark
-    
+        md_bg_color: app.theme_cls.bg_normal
+
     MDFloatingActionButton:
         id: button
         icon: "plus"
         pos: 730, 10
         on_release: app.tap_target_start()
-        
-    MDNavigationLayout:
+        md_bg_color: app.theme_cls.bg_dark 
 
+    MDNavigationLayout:
         ScreenManager:
             Screen:
-
                 BoxLayout:
                     orientation: 'vertical'
-
                     MDToolbar:
                         title: "Fast Management"
                         elevation: 10
                         left_action_items: [['menu', lambda x: nav_drawer.set_state("open")]]
                         md_bg_color: app.theme_cls.bg_dark
-
-
                     Widget:
-                        
-
 
         MDNavigationDrawer:
             id: nav_drawer
-
             ContentNavigationDrawer:
                 id: content_drawer
 '''
@@ -125,6 +104,7 @@ class Fast_Management(MDApp):
             title_text="Create New Projects",
             description_text="Создайте новый проект",
             widget_position="right_bottom",
+            outer_circle_color=(0.121568627, 0.121568627, 0.121568627)
         )
         self.theme_cls.theme_style = "Dark"
         return screen
@@ -133,8 +113,6 @@ class Fast_Management(MDApp):
         icons_item = {
             "folder": "Projects",
             "account-multiple": "My Task",
-            # "star": "Starred",
-            # "history": "Recent",
             "checkbox-marked": "About Us",
         }
         for icon_name in icons_item.keys():
@@ -147,5 +125,6 @@ class Fast_Management(MDApp):
             self.tap_target_view.start()
         else:
             self.tap_target_view.stop()
+
 
 Fast_Management().run()
