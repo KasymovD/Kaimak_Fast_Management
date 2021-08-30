@@ -96,7 +96,8 @@ class DrawerList(ThemableBehavior, MDList):
         instance_item.text_color = self.theme_cls.primary_color
 
 
-class Fast_Management(MDApp):
+class Kaimak_Management(MDApp):
+    title = "Kaimak Management"
     def build(self):
         screen = Builder.load_string(KV)
         self.tap_target_view = MDTapTargetView(
@@ -127,4 +128,4 @@ class Fast_Management(MDApp):
             self.tap_target_view.stop()
 
 
-Fast_Management().run()
+Kaimak_Management().run()
