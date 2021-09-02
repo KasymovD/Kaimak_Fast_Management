@@ -46,10 +46,10 @@ requirements = python3, kivy==2.0.0, kivymd, https://github.com/kivymd/KivyMD/ar
 #garden_requirements =
 
 # (str) Presplash of the application
-#presplash.filename = %(source.dir)s/data/logo/Kaimak_logo_B.png
+presplash.filename = %(source.dir)s/data/logo/Kaimak_logo_B.png
 
 # (str) Icon of the application
-#icon.filename = %(source.dir)s/data/logo/icon.jpg
+icon.filename = %(source.dir)s/data/logo/icon.jpg
 
 # (str) Supported orientation (one of landscape, sensorLandscape, portrait or all)
 orientation = all
