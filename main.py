@@ -86,7 +86,7 @@ MDScreen:
     MDFloatingActionButton:
         id: button
         icon: "plus"
-        pos_hint: {"right":1, "top":0.1}
+        pos_hint: {"right":0.99, "top":0.111}
         on_release: app.tap_target_start()
 '''
 
